@@ -1,11 +1,9 @@
-package LOL.demo.domain.Member;
+package LOL.demo.domain.member;
 
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -14,6 +12,7 @@ public class Member {
 
     // PK
     @Id @GeneratedValue
+    @Column(name = "Member_id")
     private Long id;
 
     // 사용자 이름
@@ -39,4 +38,9 @@ public class Member {
 
     }
 
+    public void editMemberEntity(String name, String loginId, String password) {
+        this.name = name;
+        this.loginId = loginId;
+        this.password = password;
+    }
 }

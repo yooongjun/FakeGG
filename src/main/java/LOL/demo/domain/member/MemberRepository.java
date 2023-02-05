@@ -1,4 +1,4 @@
-package LOL.demo.domain.Member;
+package LOL.demo.domain.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -24,5 +24,16 @@ public class MemberRepository {
         return entityManager.createQuery("SELECT m FROM Member m ", Member.class)
                 .getResultList();
     }
+
+    public Long edit(Long id, Member editMember) {
+        Member member = findById(id);
+        member.editMemberEntity(editMember.getName(), editMember.getLoginId(), editMember.getPassword());
+        return member.getId();
+    }
+
+    public void delete(Long id) {
+        entityManager.remove(findById(id));
+    }
+
 
 }
