@@ -1,5 +1,7 @@
 package LOL.demo.domain.member;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +67,15 @@ public class MemberRepositoryTest {
         assertThat(list.size()).isEqualTo(2);
 
     }
+
+    @BeforeEach
+    public void create_default_date(){
+        Member memberA = new Member("test", "user", "1234");
+        Member memberB = new Member("hong", "hongId", "1234");
+
+        entityManager.persist(memberA);
+        entityManager.persist(memberB);
+    }
+
 
 }

@@ -38,7 +38,8 @@ public class Member {
 
     }
 
-    public void editMemberEntity(String name, String loginId, String password) {
+        // 수정 메소드
+        public void editMemberEntity(String name, String loginId, String password) {
         this.name = name;
         this.loginId = loginId;
         this.password = password;
